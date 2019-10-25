@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UelsessIOT Data</title>
+    <script defer src="/__/firebase/7.0.0/firebase-app.js"></script>
+    <script defer src="/__/firebase/7.0.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <script src="dat.gui.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <style media="screen">
+      #splash{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 100vh;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 200%;
+      }
+      #body{
+        height: 1800px;
+      }
+      .canvas-wrapper{
+        height: 600px;
+      }
+      .dg{
+        font-family: 'Montserrat', sans-serif;
+      }
+    </style>
+  </head>
+  <body id="body">
+    <div id="splash">
+      <h1>Calling the cloud, please wait</h1>
+      <h2 id="dots">.</h2>
+    </div>
+    <div class="canvas-wrapper">
+      <canvas id="tempChart"></canvas>
+    </div>
+    <div class="canvas-wrapper">
+      <canvas id="humiChart"></canvas>
+    </div>
+    <div class="canvas-wrapper">
+      <canvas id="presChart"></canvas>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
