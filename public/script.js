@@ -6,6 +6,7 @@ var tempChart;
 var humiChart;
 var presChart;
 var dataReady = false;
+var loadingTime = 0;
 var loadingAnim = setInterval(loadingIndicator, 500);
 document.addEventListener('DOMContentLoaded', function() {
   Chart.defaults.global.defaultFontFamily = 'Montserrat';
@@ -26,7 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadingIndicator(){
-  document.getElementById('dots').innerHTML += '.';
+  loadingTime += 500;
+  if(loadingTime < 9 * 500){
+    document.getElementById('dots').innerHTML += '.';
+  } else {
+    document.getElementById('dots').innerHTML = (loadingTime/500 + 1) + ' loading dots';
+  }
 }
 
 function init(){
