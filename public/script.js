@@ -31,7 +31,15 @@ function loadingIndicator(){
   if(loadingTime < 9 * 500){
     document.getElementById('dots').innerHTML += '.';
   } else {
-    document.getElementById('dots').innerHTML = (loadingTime/500 + 1) + ' loading dots';
+    if(loadingTime/500 == 30){
+      document.getElementById('splash_text').innerHTML = "Cloud is too shy to answer, mustering courage"
+    }
+    if(loadingTime/500 >= 30){
+      document.getElementById('dots').innerHTML = (loadingTime/500 + 1) + ' courage points';
+    } else {
+      document.getElementById('dots').innerHTML = (loadingTime/500 + 1) + ' loading dots';
+    }
+    
   }
 }
 
@@ -56,7 +64,7 @@ function init(){
 }
 
 function getOptimalStep(){
-  return Math.min(maxStep, Math.max(minStep, Math.round(originalData.length / 175)));
+  return Math.ceil(Math.min(maxStep, Math.max(minStep, Math.round(originalData.length / 175))));
 }
 
 function updateChart(){
